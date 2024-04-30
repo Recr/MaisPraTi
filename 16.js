@@ -1,16 +1,20 @@
-let numberOfPrimes = 50;
-let startingNumber = 101;
+// Ex16: Print the first 50 prime numbers after 100.
 
-for(let i = startingNumber; numberOfPrimes > 0; i++){
+let numberOfPrimes = 50;
+let testedNumber = 101;
+while(numberOfPrimes > 0){
     let prime = true;
-    for(let u = 2; u < i/2; u++){
-        if(i % u === 0){
+    let divider = 2;
+    while (divider < testedNumber/2){
+        if(testedNumber % divider === 0){
             prime = false;
             break;
         }
+        divider++;
     }
     if(prime){
-        console.log(i);
+        console.log(testedNumber);
         numberOfPrimes--;
     }
+    testedNumber++;
 }
