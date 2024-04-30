@@ -5,7 +5,7 @@ let testedNumber = 101;
 while(numberOfPrimes > 0){
     let prime = true;
     let divider = 2;
-    while (divider < testedNumber/2){
+    while (divider <= testedNumber/2){
         if(testedNumber % divider === 0){
             prime = false;
             break;
