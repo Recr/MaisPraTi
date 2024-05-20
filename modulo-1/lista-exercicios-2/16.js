@@ -7,11 +7,11 @@ for (let i = 0; i < 20; i++) {
 console.log(randomNumbers);
 
 for (let i = 0; i < randomNumbers.length - 1; i++) {
-    for(let u = 1; u < randomNumbers.length; u++){
-        if(randomNumbers[i] > randomNumbers[u]){
-            let aux = randomNumbers[i];
-            randomNumbers[i] = randomNumbers[u];
-            randomNumbers[u] = aux;
+    for(let u = 0; u < randomNumbers.length-i; u++){
+        if(randomNumbers[u] > randomNumbers[u+1]){
+            let aux = randomNumbers[u];
+            randomNumbers[u] = randomNumbers[u+1];
+            randomNumbers[u+1] = aux;
         }
     }
 }
