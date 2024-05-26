@@ -1,5 +1,5 @@
 let matrixRows = Array();
-let negativesNumberPerRow = Array();
+let C = Array();
 
 for (let i = 0; i < 6; i++) {
     let matrixColums = Array();
@@ -27,9 +27,9 @@ for (let i = 0; i < 6; i++) {
             negativesNumber++;
         }
     }
-    negativesNumberPerRow.push(negativesNumber);
+    C.push(negativesNumber);
 }
 
-for (let i = 0; i < negativesNumberPerRow.length; i++) {
-    console.log(`There is ${negativesNumberPerRow[i]} negative numbers in row ${i+1}`);
+for (let i = 0; i < C.length; i++) {
+    console.log(`There is ${C[i]} negative numbers in row ${i+1}`);
 }
