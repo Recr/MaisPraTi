@@ -16,6 +16,7 @@ for (let i = 0; i < 3; i++) { //matrix 1
     }
     matrixRows1.push(matrixColums);
 }
+
 for (let i = 0; i < 5; i++) { //matrix 2
     let matrixColums = Array();
     for (let u = 0; u < 3; u++) {
