@@ -4,10 +4,10 @@ let elementsBelowDiagonalSum = 0;
 
 console.log("\nGenerated matrix: \n");
 
-for (let i = 0; i < 5; i++) { 
+for (let i = 0; i < 10; i++) { 
     let matrixColums = Array();
     let diagonalFound = false;
-    for (let u = 0; u < 5; u++) {
+    for (let u = 0; u < 10; u++) {
         let number = Math.round(Math.random() * 10); // generates number between 0 and 10
         matrixColums.push(number);
         
