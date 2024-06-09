@@ -25,6 +25,6 @@ for (let i = 0; i < 20; i++) {
     for (let u = 0; u < 15; u++) {
         columnSum += matrixRows[u][i];
     }
-    console.log(`The sum of the column ${i} is: ${columnSum}`);
+    console.log(`The sum of the column ${i+1} is: ${columnSum}`);
 }
 
