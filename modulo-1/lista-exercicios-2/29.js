@@ -7,13 +7,13 @@ let elementsSum = 0;
 console.log("\nGenerated matrix: \n");
 
 for (let i = 0; i < 5; i++) { 
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 5; u++) {
         let number = Math.round(Math.random() * 10); // generates number between 0 and 10
-        matrixColums.push(number);
+        matrixColumns.push(number);
         elementsSum += number;
     }
-    matrixRows.push(matrixColums);
+    matrixRows.push(matrixColumns);
 }
 
 matrixRows.forEach(row => {

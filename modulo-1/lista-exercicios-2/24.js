@@ -2,7 +2,7 @@ let matrixRows = Array();
 let C = Array();
 
 for (let i = 0; i < 6; i++) {
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 8; u++) {
         let number = Math.round(Math.random() * 100); // generates number between 0 and 99
         let signalRandomizer = Math.random();
@@ -11,9 +11,9 @@ for (let i = 0; i < 6; i++) {
                 number *= -1;
             }
         }
-        matrixColums.push(number);
+        matrixColumns.push(number);
     }
-    matrixRows.push(matrixColums);
+    matrixRows.push(matrixColumns);
 }
 
 matrixRows.forEach(row => {

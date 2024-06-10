@@ -5,11 +5,11 @@ let elementsBelowDiagonalSum = 0;
 console.log("\nGenerated matrix: \n");
 
 for (let i = 0; i < 10; i++) { 
-    let matrixColums = Array();
+    let matrixColumns = Array();
     let diagonalFound = false;
     for (let u = 0; u < 10; u++) {
         let number = Math.round(Math.random() * 10); // generates number between 0 and 10
-        matrixColums.push(number);
+        matrixColumns.push(number);
         
         if (u === i) {
             diagonalFound = true;
@@ -22,7 +22,7 @@ for (let i = 0; i < 10; i++) {
         }
 
     }
-    matrixRows.push(matrixColums);
+    matrixRows.push(matrixColumns);
 }
 
 matrixRows.forEach(row => {

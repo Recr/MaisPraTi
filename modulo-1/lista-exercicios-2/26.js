@@ -3,7 +3,7 @@ let matrixRows2 = Array();
 let productMatrix = Array();
 
 for (let i = 0; i < 3; i++) { //matrix 1
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 5; u++) {
         let number = Math.round(Math.random() * 10); // generates number between -10 and 10
         let signalRandomizer = Math.random();
@@ -12,13 +12,13 @@ for (let i = 0; i < 3; i++) { //matrix 1
                 number *= -1;
             }
         }
-        matrixColums.push(number);
+        matrixColumns.push(number);
     }
-    matrixRows1.push(matrixColums);
+    matrixRows1.push(matrixColumns);
 }
 
 for (let i = 0; i < 5; i++) { //matrix 2
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 3; u++) {
         let number = Math.round(Math.random() * 10); 
         let signalRandomizer = Math.random();
@@ -27,9 +27,9 @@ for (let i = 0; i < 5; i++) { //matrix 2
                 number *= -1;
             }
         }
-        matrixColums.push(number);
+        matrixColumns.push(number);
     }
-    matrixRows2.push(matrixColums);
+    matrixRows2.push(matrixColumns);
 }
 
 matrixRows1.forEach(row => {
@@ -46,16 +46,16 @@ console.log();
 
 
 for (let i = 0; i < parseInt(matrixRows1.length); i++) {
-    let matrixColums = Array();
+    let matrixColumns = Array();
     let sum = 0;
     for (let u = 0; u < parseInt(matrixRows1.length); u++) {
         for (let y = 0; y < parseInt(matrixRows2.length); y++) {
             sum += matrixRows1[i][y] * matrixRows2[y][u];
         }
-        matrixColums.push(sum);
+        matrixColumns.push(sum);
         sum = 0;
     }
-    productMatrix.push(matrixColums);
+    productMatrix.push(matrixColumns);
 }
 
 productMatrix.forEach(row => {

@@ -7,13 +7,13 @@ let A = parseInt(input("Type a number to multiply the matrix: "));
 console.log("\nGenerated matrix: \n");
 
 for (let i = 0; i < 6; i++) { 
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 6; u++) {
         let number = Math.round(Math.random() * 10); // generates number between 0 and 10
-        matrixColums.push(number);
+        matrixColumns.push(number);
         V.push(number * A);
     }
-    matrixRows.push(matrixColums);
+    matrixRows.push(matrixColumns);
 }
 
 matrixRows.forEach(row => {

@@ -2,7 +2,7 @@ let matrixRows = Array();
 let C = Array();
 
 for (let i = 0; i < 15; i++) {
-    let matrixColums = Array();
+    let matrixColumns = Array();
     for (let u = 0; u < 20; u++) {
         let number = Math.round(Math.random() * 10 * 10) / 10; // generates number between 0 and 10
         let signalRandomizer = Math.random();
@@ -11,9 +11,9 @@ for (let i = 0; i < 15; i++) {
                 number *= -1;
             }
         }
-        matrixColums.push(number);
+        matrixColumns.push(number);
     }
-    matrixRows.push(matrixColums);
+    matrixRows.push(matrixColumns);
 }
 
 matrixRows.forEach(row => {
@@ -25,6 +25,6 @@ for (let i = 0; i < 20; i++) {
     for (let u = 0; u < 15; u++) {
         columnSum += matrixRows[u][i];
     }
-    console.log(`The sum of the column ${i+1} is: ${columnSum}`);
+    console.log(`The sum of the column ${i+1} is: ${columnSum.toFixed(2)}`);
 }
 
