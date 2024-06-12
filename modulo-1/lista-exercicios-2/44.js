@@ -1,4 +1,4 @@
-let obj = {
+let object = {
     name: "Wolfgang Amadeus Mozart",
     job: "Musician",
     age: 30,
@@ -6,11 +6,14 @@ let obj = {
     mainInstrument: "Piano"
 };
 
-let stringAmount = 0;
-for (property in obj) {
-    if (typeof obj[property] === "string") {
-        stringAmount++;
+function countString(obj) {
+    let stringAmount = 0;
+    for (property in obj) {
+        if (typeof obj[property] === "string") {
+            stringAmount++;
+        }
     }
+    return stringAmount;
 }
 
-console.log(`There is ${stringAmount} strings in the object.`);
+console.log(`There is ${countString(object)} strings in the object.`);
