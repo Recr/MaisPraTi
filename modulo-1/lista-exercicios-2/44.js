@@ -13,4 +13,4 @@ for (property in obj) {
     }
 }
 
-console.log(`There is ${stringAmount} string in the object.`);
+console.log(`There is ${stringAmount} strings in the object.`);
