@@ -23,7 +23,9 @@ function totalSalesPerVendor (salesArray) {
     }
     return total;
 }
-console.log(sales)
-console.log(totalSalesPerVendor(sales));
+console.log("Sales:")
+console.table(sales)
+console.log("\nTotal per Vendor:")
+console.table(totalSalesPerVendor(sales));
 
 
