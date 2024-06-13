@@ -123,7 +123,7 @@ while (loop) {
                 console.log("No hotels found! Did you type right?");
                 input("Type any button to continue.");    
             }
-            
+
             console.clear();
             break;
 
@@ -167,7 +167,13 @@ while (loop) {
         
         case 5:
              console.clear();
-             console.table(bookings);
+             let data = Array();
+             for (let booking of bookings) {
+                booking.hotelName = hotels[booking.idHotel-1].name;
+                booking.hotelCity = hotels[booking.idHotel-1].city;
+                data.push(booking);
+             }
+             console.table(data);
              input("Type any button to continue.");
              console.clear();
              break;
