@@ -2,6 +2,7 @@ const input = require("prompt-sync")();
 
 let hotels = Array();
 let bookings = Array();
+let bookingsMade = 0;
 
 
 let loop = true;
@@ -84,21 +85,25 @@ while (loop) {
                 break;
             }
             let hotelName = input("Type the hotel's name: ");
+            let isBooked = false;
             for (let hotel of hotels) {
                 if (hotel.name === hotelName) {
                     if (hotel.availableRooms > 0) {
                         let booking = {
-                            id: bookings.length + 1,
+                            id: bookingsMade + 1,
                             idHotel: hotel.id,
                             name: input("Type your name: ")
                         };
     
                         console.clear();
                         console.log(`Confirm a booking for "${booking.name}" in hotel "${hotel.name}"?`);
-                        let choice = input("Type 'y' to confirm. Any other word typed will cancel the booking.");
+                        let choice = input("Type 'y' to confirm. Any other word typed will cancel the booking. ");
                         if (choice === 'y') {
                             bookings.push(booking);
                             hotel.availableRooms--;
+                            bookingsMade++;
+                            isBooked = true;
+                            console.clear();
                         }
     
                         break;
@@ -108,15 +113,18 @@ while (loop) {
                         console.log("No rooms available.");
                         input("Type any button to continue.");
                         console.clear();
+                        break;
                     }
                     
-                } else {
-                    console.clear();
-                    console.log("No hotels found! Did you type right?");
-                    input("Type any button to continue.");
-                    console.clear();
                 }
             }
+            if (!isBooked) {
+                console.clear();
+                console.log("No hotels found! Did you type right?");
+                input("Type any button to continue.");    
+            }
+            
+            console.clear();
             break;
 
         case 4:
@@ -127,23 +135,34 @@ while (loop) {
                 console.clear();
                 break;
             }
+            let bookingNotFound = true;
+            let cancelledBookingId = parseInt(input("Type the booking Id: "));
             let cancelledBooking;
-            do {
-                let testCancelledBooking = parseInt(input("Type the booking Id: "));
-                if (testCancelledBooking > 0 && testCancelledBooking <= bookings.length) {
-                    cancelledBooking = testCancelledBooking;
-                } else {
-                    console.log(`Type a valid number.`);
+            let cancelledBookingIndex;
+            for (let [index, booking] of bookings.entries()) {
+                if(booking.id === cancelledBookingId) {
+                    bookingNotFound = false;
+                    cancelledBooking = booking;
+                    cancelledBookingIndex = index;
                 }
-            } while (isNaN(cancelledBooking))
+            }
+            if (bookingNotFound) {
+                console.clear();
+                console.log(`Booking not found.`);
+                input("Type any button to continue.");
+                console.clear();
+                break;
+            }
+            
             console.clear();
-            let hotelId = bookings[cancelledBooking - 1].hotelId;
-            console.log(`Cancel the booking for ${bookings[cancelledBooking-1].name} in the hotel ${hotels[hotelId-1].name}?`); //error
-            let choice = input("Type 'y' to confirm. Any other word typed will quit the cancellation.");
-                        if (choice === 'y') {
-                            bookings.splice(cancelledBooking - 1,1);
-                            hotels[hotelId].availableRooms++;
-                        }
+            let idHotel = cancelledBooking.idHotel;
+            console.log(`Cancel the booking for ${cancelledBooking.name} in the hotel ${hotels[idHotel-1].name}?`); //error
+            let choice = input("Type 'y' to confirm. Any other word typed will quit the cancellation. ");
+            if (choice === 'y') {
+                bookings.splice(cancelledBookingIndex,1);
+                hotels[idHotel-1].availableRooms++;
+            }
+            console.clear();
             break;
         
         case 5:
