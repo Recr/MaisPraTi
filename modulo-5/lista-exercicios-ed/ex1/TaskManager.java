@@ -3,12 +3,11 @@
 
 package ex1;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class TaskManager {
     public static void main(String[] args) {
-        LinkedList<Task> taskManager = new LinkedList<>();
+        SinglyLinkedList<Task> taskManager = new SinglyLinkedList<>();
         boolean loop = true;
         while (loop) {
             System.out.println("\nTask Manager\n");
@@ -74,8 +73,8 @@ public class TaskManager {
                     break;
 
                 case 4:
-                    for(Task task: taskManager) {
-                        System.out.println(task);
+                    for(int i = 0; i < taskManager.size(); i++) {
+                        System.out.println(taskManager.get(i));
                     }
                     break;
 
