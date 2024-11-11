@@ -1,19 +1,19 @@
-package ex6;
+package ex8;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class ClientQueue {
+public class ProcessQueue {
     public static void main(String[] args) {
-        Queue<Client> clientQueue = new LinkedList<>();
+        Queue<ProcessQueue.Process> processQueue = new LinkedList<>();
         String text = "";
         int option = 1;
         while (option != 0) {
-            System.out.println("\nClient Queue\n");
+            System.out.println("\nProcess Queue\n");
             System.out.println("Choose an option:");
-            System.out.println("1 - New Client");
-            System.out.println("2 - Serve client");
+            System.out.println("1 - New Process");
+            System.out.println("2 - Execute");
             System.out.println("0 - Exit");
             Scanner input = new Scanner(System.in);
             String flush; //flush command line
@@ -27,16 +27,16 @@ public class ClientQueue {
             int index;
             switch (option) {
                 case 1:
-                    System.out.println("Type the client name: ");
+                    System.out.println("Type process name: ");
                     text = input.nextLine();
-                    clientQueue.add(new Client(text));
+                    processQueue.add(new ProcessQueue.Process(text));
                     break;
 
                 case 2:
-                    if (clientQueue.size() == 0) {
-                        System.err.println("No clients to serve!");
+                    if (processQueue.size() == 0) {
+                        System.err.println("Nothing to execute!");
                     } else {
-                        System.out.println("Client " + clientQueue.poll().name() + " was served!");
+                        System.out.println(processQueue.poll().name() + " was executed!");
                     }
                     break;
 
@@ -51,5 +51,5 @@ public class ClientQueue {
             }
         }
     }
-    private record Client(String name) {}
+    private record Process (String name){}
 }
