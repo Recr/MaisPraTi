@@ -7,8 +7,9 @@ public class UndoRedoFunction {
     public static void main(String[] args) {
         LinkedList<String> editions = new LinkedList<>();
         String text = "";
-        int currentIndex;
+        int currentIndex = 0;
         int option = 1;
+        editions.add(text);
         while (option != 0) {
             System.out.println("\nText Editor\n");
             System.out.println("Choose an option:");
@@ -30,21 +31,37 @@ public class UndoRedoFunction {
             switch (option) {
                 case 1:
                     System.out.println("Edit the text below: ");
-                    editions.add(text);
                     text = input.nextLine();
+                    if (currentIndex == editions.size() - 1) {
+                        editions.add(text);
+                        currentIndex++;
+                    } else {
+                       while (editions.size() - 1 > currentIndex) {
+                            editions.removeLast();
+                       }
+                       editions.add(text);
+                       currentIndex++;
+                    }
                     break;
 
                 case 2:
-                    if (editions.size() == 0) {
+                    if (currentIndex < 1) {
                         System.err.println("No editions history!");
                     } else {
-                        text = editions.get();
+                        currentIndex--;
+                        text = editions.get(currentIndex);
                         System.out.print("Last edition undone: ");
                     }
                     break;
 
                 case 3:
-
+                    if (currentIndex >= editions.size()-1 && currentIndex >= 0) {
+                        System.err.println("No editions history!");
+                    } else {
+                        currentIndex++;
+                        text = editions.get(currentIndex);
+                        System.out.print("Last edition redone: ");
+                    }
                     break;
 
                 case 4:
